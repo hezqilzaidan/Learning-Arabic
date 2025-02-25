@@ -1,0 +1,24 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class MenuSceneUI : MonoBehaviour
+{
+
+[Header("Info Panel")]
+   
+    [SerializeField] private Button infoButton;
+    [SerializeField] private Button closeInfoButton;
+    [SerializeField] private GameObject infoPanel;
+
+private void Start()
+{
+    infoButton.onClick.AddListener(ToggleInfoPanel);
+    closeInfoButton.onClick.AddListener(ToggleInfoPanel);
+
+private void ToggleInfoPanel()
+{
+    ToggleGameObject(infoPanel);
+}
+}
+}

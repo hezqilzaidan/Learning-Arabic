@@ -1,0 +1,19 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class MenuSceneUI : MonoBehaviour
+{
+	[SerializeField] private Button playButton;
+    [SerializeField] private GameObject selectModePanel;
+
+     private void Start()
+    {
+        playButton.onClick.AddListener(ToggleModePanel);
+	
+	  private void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }    
+ }
+}

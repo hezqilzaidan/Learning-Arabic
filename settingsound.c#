@@ -1,0 +1,38 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class MenuSceneUI : MonoBehaviour
+{
+ 
+[Header("Setting Panel")]
+    
+    [SerializeField] private Button settingButton;
+    [SerializeField] private Button closeSettingButton;
+    [SerializeField] private GameObject settingPanel;
+
+
+	private void Start()
+	{
+		audioOnButton.onClick.AddListener(ToggleAudioSetting);
+        audioOffButton.onClick.AddListener(ToggleAudioSetting);
+
+     private void Update()
+    {
+        if(ConfigData.configInstance.isBgmOn)
+        {
+            audioOnButton.interactable = false;
+            audioOffButton.interactable = true;
+        }
+        else
+        {
+            audioOnButton.interactable= true;
+            audioOffButton.interactable = false;
+        }
+    }
+
+       private void ToggleAudioSetting()
+    {
+        ConfigData.configInstance.ToggleMusic();
+    }
+}

@@ -1,0 +1,32 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class MenuSceneUI : MonoBehaviour
+{
+ [Header("Exit Panel")]
+
+    [SerializeField] private Button exitButton;
+    [SerializeField] private Button cancelExitButton;
+    [SerializeField] private Button confirmExitButton;
+    [SerializeField] private GameObject exitPanel;
+
+  private bool isActive;
+
+  private void Start()
+  {
+    exitButton.onClick.AddListener(ToggleExitPanel);
+    cancelExitButton.onClick.AddListener(ToggleExitPanel);
+    confirmExitButton.onClick.AddListener(ExitGame);
+
+  private void ToggleExitPanel()
+  {
+    ToggleGameObject(exitPanel);
+  }
+
+  private void ExitGame()
+    {
+        Application.Quit();
+    }
+}
+}

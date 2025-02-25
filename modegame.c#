@@ -1,0 +1,70 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class MenuSceneUI : MonoBehaviour
+{
+
+    [Header("Select Mode Menu")]
+
+    [SerializeField] private GameObject panelModeTebak;
+    [SerializeField] private GameObject panelModePuzzle;
+    [SerializeField] private GameObject panelModeTulis;
+
+    [SerializeField] private Button[] menuModeButton;
+    [SerializeField] private Button selectModeTebak;
+    [SerializeField] private Button selectModePuzzle;
+    [SerializeField] private Button selectModeTulis;
+    [SerializeField] private Button playModeTebakButton;
+    [SerializeField] private Button playModePuzzleButton;
+    [SerializeField] private Button playModeTulisButton;
+
+     for (int i = 0; i < menuModeButton.Length; i++)
+        {
+            menuModeButton[i].onClick.AddListener(BackToMenu);
+        }
+     
+        selectModeTebak.onClick.AddListener(ToggleModeTebak);
+        selectModePuzzle.onClick.AddListener(ToggleModePuzzle);
+        selectModeTulis.onClick.AddListener(ToggleModeTulis);
+        playModeTebakButton.onClick.AddListener(LoadTebakScene);
+        playModePuzzleButton.onClick.AddListener(LoadPuzzleScene);
+        playModeTulisButton.onClick.AddListener(LoadTulisScene);
+    }
+      private void ToggleModeTebak()
+    {
+        ToggleGameObject(panelModeTebak);
+    }
+
+    private void ToggleModePuzzle()
+    {
+        ToggleGameObject(panelModePuzzle);
+    }
+
+    private void ToggleModeTulis()
+    {
+        ToggleGameObject(panelModeTulis);
+    }
+
+    private void LoadTebakScene()
+    {
+        SaveData.SaveInstance.ResetScoreTebak();
+        
+        LoadScene("TebakHijaiyah");
+    }
+
+    private void LoadPuzzleScene()
+    {
+        SaveData.SaveInstance.ResetScorePuzzle();
+
+        LoadScene("PuzzleHijaiyah");
+    }
+
+    private void LoadTulisScene()
+    {
+        SaveData.SaveInstance.ResetScoreTulis();
+
+        LoadScene("TulisHijaiyah");
+    }
+}
+}
